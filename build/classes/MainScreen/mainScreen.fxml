@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<SplitPane dividerPositions="0.35" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainScreen.MainScreenController">
+  <items>
+      <SplitPane dividerPositions="0.4" orientation="VERTICAL" prefHeight="398.0" prefWidth="416.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <ImageView fx:id="imageView" fitHeight="316.0" fitWidth="276.0" layoutX="2.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+               </children></AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+        </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.6" orientation="VERTICAL" prefHeight="398.0" prefWidth="176.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="119.0" prefWidth="155.0" />
+        </items>
+      </SplitPane>
+  </items>
+</SplitPane>
