@@ -28,7 +28,7 @@ public class myCV extends Application {
             SplitPane splitpane=loader.load();
             
             Scene scene=new Scene(splitpane,800,800);
-            scene.getStylesheets().add("/Game/game.css");
+            scene.getStylesheets().add("/MainScreen/mainScreen.css");
             primaryStage.setScene(scene);
             primaryStage.setTitle("MyCV");
             
