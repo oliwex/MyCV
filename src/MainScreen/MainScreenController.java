@@ -6,12 +6,11 @@
 package MainScreen;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import static java.lang.Thread.sleep;
-
+import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.Animation;
@@ -21,8 +20,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.SplitPane;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -30,12 +27,19 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 
+
+
+
+
 /**
  * FXML Controller class
  *
  * @author oliwe
  */
-public class MainScreenController implements Initializable {
+public class MainScreenController implements Initializable
+{
+
+
     
     @FXML
     private ImageView imageView;
@@ -82,15 +86,25 @@ public class MainScreenController implements Initializable {
         this.gridPane.add(new ProgressBar(0.4),1,5);
     }
     @FXML
-    private void setText() 
+    private void setText()
     {
         
+    }
+    private String readFromFile(String filePath)
+    {
+        String content = "";
+        try 
+        {
+            content = new String ( Files.readAllBytes( Paths.get(filePath) ) ); 
+        } catch (IOException ex) {
+            Logger.getLogger(MainScreenController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return content;
     }
     
     /**
      * Initializes the controller class.
      */
-    @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
         this.setImage();
@@ -98,7 +112,7 @@ public class MainScreenController implements Initializable {
         this.setGridPane();
         
         /*czytacz textu z pliku*/
-        final String content = "abcdefghijklmnoprstuwxyzabcdefghijklmnoprstuwxyzabcdefghijklmnoprstuwxyz";
+        final String content = this.readFromFile("src/File/about.txt");
         
        
         final Animation animation = new Transition() 
@@ -120,5 +134,7 @@ public class MainScreenController implements Initializable {
         
         
     }    
+
+    
     
 }
