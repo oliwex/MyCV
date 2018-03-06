@@ -11,31 +11,29 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.SplitPane;
-
 import javafx.stage.Stage;
 
 /**
  *
  * @author oliwe
  */
-public class myCV extends Application {
+public class MyCV extends Application {
     
     @Override
-    public void start(Stage primaryStage) 
-    {
-        try {
-            FXMLLoader loader=new FXMLLoader(this.getClass().getResource("/MainScreen/mainScreen.fxml"));
+    public void start(Stage primaryStage) {
+       try {
+            FXMLLoader loader=new FXMLLoader(this.getClass().getResource("/view/MainScreen.fxml"));
             SplitPane splitpane=loader.load();
             
-            Scene scene=new Scene(splitpane,800,800);
-            scene.getStylesheets().add("/MainScreen/mainScreen.css");
+            Scene scene=new Scene(splitpane,900,800);
+            scene.getStylesheets().add("/css/MainScreen.css");
             primaryStage.setScene(scene);
             primaryStage.setTitle("MyCV");
             
             primaryStage.setResizable(false);
             primaryStage.show();
         } catch (IOException ex) {
-            Logger.getLogger(myCV.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MyCV.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
